@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analyser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>💬 Sentiment Analyser</h1>
+        <p class="subtitle">Paste reviews or feedback — get instant sentiment scores</p>
+
+        <div class="input-section">
+            <div class="mode-toggle">
+                <button class="mode-btn active" onclick="setMode('single')">Single Review</button>
+                <button class="mode-btn" onclick="setMode('batch')">Batch Mode</button>
+            </div>
+            <textarea id="input" placeholder="Paste a review here...&#10;&#10;For batch mode: one review per line"></textarea>
+            <button onclick="analyse()" class="btn-analyse">🔍 Analyse</button>
+        </div>
+
+        <div id="results" class="results hidden">
+            <div id="single-result" class="single-result">
+                <div class="score-card">
+                    <div class="score-value" id="score">0</div>
+                    <div class="score-label" id="rating">Neutral</div>
+                </div>
+                <div class="highlighted-text" id="highlighted"></div>
+                <div class="word-breakdown" id="breakdown"></div>
+            </div>
+            <div id="batch-result" class="batch-result hidden">
+                <div class="batch-summary" id="batch-summary"></div>
+                <div class="batch-chart" id="batch-chart"></div>
+                <div class="batch-list" id="batch-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        Built by <a href="https://www.handonweb.com">Hand On Web</a> · Chester, UK
+    </footer>
+
+    <script src="afinn.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
